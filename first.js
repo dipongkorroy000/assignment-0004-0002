@@ -9,13 +9,14 @@ function calculateVAT(price){
 
 function validContact(contact){
     let number = false;
-    if(isNaN(contact) === true){
+    if(typeof contact !== 'string' || isNaN(contact) === true ){
         return 'Invalid';
     }else if(contact.length == 11 && contact.includes(' ') === false && contact.slice(0,2) === '01'){
         number = true;
     }
     return number;
 }
+// console.log(validContact(true))
 
 function willSuccess(marks){
     let bePositive = false;
@@ -51,13 +52,13 @@ function validProposal(person1,person2){
     return condition;
 }
 
-function calculateSleepTime(times){
+function calculateSleepTime(times) {
     let sum = 0;
-    for(let i of times){
-        if(typeof(i) !== 'number'){
+    for (let i of times) {
+        if (typeof (i) !== 'number') {
             return 'Invalid';
         }
-        else if(i){
+        else if (i) {
             sum += i;
         }
     }
@@ -70,11 +71,13 @@ function calculateSleepTime(times){
 
     let second = sum % 60;
 
-    return {hour: justHour,
-            minute: justMinute, 
-            second: second
-        };
+    return {
+        hour: justHour,
+        minute: justMinute,
+        second: second
+    };
 }
+// console.log(calculateSleepTime([5600]));
 
 
 
